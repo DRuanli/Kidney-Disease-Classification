@@ -2,22 +2,22 @@ import os
 from pathlib import Path
 import logging
 
-# logging string
-logging.basicConfig(Level=logging.INFO, format='[%(asctime)s]: %(message)s:')
+# Configure logging correctly (note lowercase "level")
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s')
 
 project_name = 'cnnClassifier'
 
 list_of_files = [
     ".github/workflows/.gitkeep",
     f"src/{project_name}/__init__.py",
-    f"src/{project_name}/compoenents/__init__.py",
+    f"src/{project_name}/components/__init__.py",  # fixed spelling from "compoenents" to "components"
     f"src/{project_name}/utils/__init__.py",
     f"src/{project_name}/config/__init__.py",
     f"src/{project_name}/config/configuration.py",
     f"src/{project_name}/pipeline/__init__.py",
     f"src/{project_name}/entity/__init__.py",
-    f"src/{project_name}/constants/__init__.py"
-    "config/config.yaml",
+    f"src/{project_name}/constants/__init__.py",
+    "config/config.yaml",  # added missing comma
     "dvc.yaml",
     "params.yaml",
     "requirements.txt",
@@ -26,18 +26,20 @@ list_of_files = [
     "templates/index.html"
 ]
 
-for filepath in list_of_files:
-    filepath = Path(filepath)
-    filedir, filename = os.path.split(filepath)
+for file_path in list_of_files:
+    file_path = Path(file_path)
+    file_dir = file_path.parent  # using pathlib's parent attribute
+    file_name = file_path.name
 
-    if filedir !="":
-        os.makeddirs(filedir, exist_ok=True)
-        logging.info(f"Creating directory; {filedir} for the file: {filename}")
+    # Create directory if it does not exist (skip if file is in the current directory)
+    if file_dir != Path('.'):
+        os.makedirs(file_dir, exist_ok=True)
+        logging.info(f"Creating directory {file_dir} for the file: {file_name}")
 
-    if (not os.path.exits(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath, "W") as f: 
+    # Check if file doesn't exist or is empty; note the correct "exists" method and mode "w" for writing
+    if (not file_path.exists()) or (file_path.stat().st_size == 0):
+        with open(file_path, "w") as f: 
             pass
-            logging.info(f"Creating empty file: {filepath}")
-
+        logging.info(f"Creating empty file: {file_path}")
     else: 
-        logging.info(f"{filename} is already  exists")
+        logging.info(f"{file_name} already exists")
