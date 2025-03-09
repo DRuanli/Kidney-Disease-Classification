@@ -1,0 +1,19 @@
+tensorflow==2.12.0
+pandas
+dvc
+mlflow==2.2.2
+notebook
+numpy
+matplotlib
+seaborn
+python-box==6.0.2
+pyYAML # to use yaml file
+tqdm
+ensure==1.0.2
+joblib
+types-PyYAML
+scipy
+Flask # flask for web app
+Flask-Cors
+gdown # read data from gg drive
+-e .
