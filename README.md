@@ -2,6 +2,13 @@
 
 
 
+# Root
+```
+├── logs          # Save the running history to maintain it separately.
+├── utils         # Save the exception history that module facing.
+    └──common.py  # Store functions for within project, for better reference lately.
+```
+
 # How to run?
 ### STEPS:
 
