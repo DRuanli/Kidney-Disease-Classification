@@ -1,4 +1,4 @@
-tensorflow==2.12.0
+tensorflow==2.13.0
 pandas
 dvc
 mlflow==2.2.2
@@ -16,4 +16,4 @@ scipy
 Flask # flask for web app
 Flask-Cors
 gdown # read data from gg drive
--e .
+-e . # enable development mode
