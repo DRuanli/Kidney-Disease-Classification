@@ -65,3 +65,13 @@ ValueError: yaml file is empty
 [2025-03-10 10:10:00,630: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2025-03-10 10:11:35,104: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 10:11:35,106: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 10:11:35,107: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 10:11:35,108: INFO: common: created directory at: artifacts]
+[2025-03-10 10:11:35,108: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 10:11:35,108: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 10:12:26,939: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 10:12:36,487: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
