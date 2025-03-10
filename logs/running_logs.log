@@ -468,3 +468,59 @@ Traceback (most recent call last):
   File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
     raise ImportError(
 ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.
+[2025-03-10 12:29:37,474: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:29:37,476: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:29:37,477: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:29:37,478: INFO: common: created directory at: artifacts]
+[2025-03-10 12:29:37,479: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:29:37,479: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:30:29,955: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:30:38,431: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:30:38,432: INFO: main: *******************]
+[2025-03-10 12:30:38,432: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:30:38,435: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:30:38,438: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:30:38,441: INFO: common: created directory at: artifacts]
+[2025-03-10 12:30:38,441: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:30:38,928: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:30:38,928: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:30:39,039: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:30:39,039: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:30:39,253: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:30:39,253: INFO: main: *******************]
+[2025-03-10 12:30:39,254: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:30:39,256: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:30:39,258: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:30:39,258: INFO: common: created directory at: artifacts]
+[2025-03-10 12:30:39,259: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:30:39,577: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-10 12:30:40,115: ERROR: main: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 30, in get_base_model
+    optimizer=tf.keras.optimizers.legacy.SGD(learning_rate=0.01),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
+    raise ImportError(
+ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 16, in main
+    training.get_base_model()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 65, in get_base_model
+    optimizer=tf.keras.optimizers.legacy.SGD(learning_rate=0.01),  # Default from params.yaml
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
+    raise ImportError(
+ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.
+[2025-03-10 12:31:01,167: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:31:01,171: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:31:01,172: INFO: common: created directory at: artifacts]
+[2025-03-10 12:31:01,173: INFO: common: created directory at: artifacts/training]
