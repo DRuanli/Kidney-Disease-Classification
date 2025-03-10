@@ -1,1 +1,67 @@
 [2025-03-09 10:12:16,397: INFO: main: Welcome to our log]
+[2025-03-10 10:06:37,991: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 10:06:37,992: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 10:06:37,993: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 10:06:37,993: ERROR: main: yaml file is empty]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/src/cnnClassifier/utils/common.py", line 33, in read_yaml
+    return ConfigBox(content)
+           ^^^^^^^^^^^^^^^^^^
+  File "box/box.py", line 295, in box.box.Box.__init__
+box.exceptions.BoxValueError: First argument must be mapping or iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 9, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 13, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/AI/Kidney/src/cnnClassifier/config/configuration.py", line 12, in __init__
+    self.params = read_yaml(params_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/ensure/main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/AI/Kidney/src/cnnClassifier/utils/common.py", line 35, in read_yaml
+    raise ValueError("yaml file is empty")
+ValueError: yaml file is empty
+[2025-03-10 10:06:50,684: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 10:06:50,685: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 10:06:50,686: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 10:06:50,687: ERROR: main: yaml file is empty]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/src/cnnClassifier/utils/common.py", line 33, in read_yaml
+    return ConfigBox(content)
+           ^^^^^^^^^^^^^^^^^^
+  File "box/box.py", line 295, in box.box.Box.__init__
+box.exceptions.BoxValueError: First argument must be mapping or iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 9, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 13, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/AI/Kidney/src/cnnClassifier/config/configuration.py", line 12, in __init__
+    self.params = read_yaml(params_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/ensure/main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/AI/Kidney/src/cnnClassifier/utils/common.py", line 35, in read_yaml
+    raise ValueError("yaml file is empty")
+ValueError: yaml file is empty
+[2025-03-10 10:08:53,619: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 10:08:53,620: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 10:08:53,622: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 10:08:53,623: INFO: common: created directory at: artifacts]
+[2025-03-10 10:08:53,623: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 10:08:53,623: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 10:09:47,549: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 10:10:00,630: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
