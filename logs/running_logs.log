@@ -191,3 +191,280 @@ x==========x]
 [2025-03-10 11:28:38,281: INFO: common: yaml file: params.yaml loaded successfully]
 [2025-03-10 11:28:38,282: INFO: common: created directory at: artifacts]
 [2025-03-10 11:28:38,283: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:12:27,676: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:12:27,678: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:12:27,689: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:12:27,691: INFO: common: created directory at: artifacts]
+[2025-03-10 12:12:27,692: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:12:27,692: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:13:18,979: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:13:36,006: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:13:36,008: INFO: main: *******************]
+[2025-03-10 12:13:36,008: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:13:36,011: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:13:36,014: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:13:36,016: INFO: common: created directory at: artifacts]
+[2025-03-10 12:13:36,016: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:13:36,469: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:13:36,469: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:13:37,193: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:13:37,194: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:13:38,139: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:13:38,140: INFO: main: *******************]
+[2025-03-10 12:13:38,140: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:13:38,142: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:13:38,143: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:13:38,144: INFO: common: created directory at: artifacts]
+[2025-03-10 12:13:38,144: ERROR: main: name 'os' is not defined]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 14, in main
+    training_config = config.get_training_config()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/AI/Kidney/src/cnnClassifier/config/configuration.py", line 56, in get_training_config
+    training_data = os.path.join(self.config.data_ingestion.unzip_dir, "kidney-ct-scan-image")
+                    ^^
+NameError: name 'os' is not defined
+[2025-03-10 12:14:31,644: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:14:31,647: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:14:31,649: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:14:31,650: INFO: common: created directory at: artifacts]
+[2025-03-10 12:14:31,650: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:14:31,650: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:14:54,884: ERROR: main: [Errno 28] No space left on device]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 12, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/data_ingestion.py", line 31, in download_file
+    raise e
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/data_ingestion.py", line 26, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/gdown/download.py", line 369, in download
+    f.write(chunk)
+OSError: [Errno 28] No space left on device
+[2025-03-10 12:15:25,290: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:15:25,293: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:15:25,295: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:15:25,296: INFO: common: created directory at: artifacts]
+[2025-03-10 12:15:25,296: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:15:25,296: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:15:31,841: ERROR: main: [Errno 28] No space left on device]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 12, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/data_ingestion.py", line 31, in download_file
+    raise e
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/data_ingestion.py", line 26, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/gdown/download.py", line 369, in download
+    f.write(chunk)
+OSError: [Errno 28] No space left on device
+[2025-03-10 12:16:39,699: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:16:39,702: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:16:39,704: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:16:39,705: INFO: common: created directory at: artifacts]
+[2025-03-10 12:16:39,705: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:16:39,705: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:17:23,897: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:17:33,504: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:17:33,505: INFO: main: *******************]
+[2025-03-10 12:17:33,505: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:17:33,509: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:17:33,514: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:17:33,515: INFO: common: created directory at: artifacts]
+[2025-03-10 12:17:33,516: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:17:34,032: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:17:34,032: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:17:34,121: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:17:34,121: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:17:34,173: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:17:34,174: INFO: main: *******************]
+[2025-03-10 12:17:34,174: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:17:34,176: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:17:34,177: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:17:34,177: INFO: common: created directory at: artifacts]
+[2025-03-10 12:17:34,177: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:17:34,411: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-10 12:17:35,473: ERROR: main: Could not import PIL.Image. The use of `load_img` requires PIL.]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 18, in main
+    training.train()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 118, in train
+    self.model.fit(
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/utils/image_utils.py", line 227, in load_img
+    raise ImportError(
+ImportError: Could not import PIL.Image. The use of `load_img` requires PIL.
+[2025-03-10 12:18:25,889: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:18:25,891: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:18:25,892: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:18:25,893: INFO: common: created directory at: artifacts]
+[2025-03-10 12:18:25,893: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:18:25,893: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:18:59,082: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:18:59,084: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:18:59,085: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:18:59,085: INFO: common: created directory at: artifacts]
+[2025-03-10 12:18:59,085: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:18:59,085: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:19:56,001: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:20:03,581: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:20:03,582: INFO: main: *******************]
+[2025-03-10 12:20:03,582: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:20:03,586: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:20:03,588: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:20:03,590: INFO: common: created directory at: artifacts]
+[2025-03-10 12:20:03,590: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:20:04,091: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:20:04,091: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:20:04,170: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:20:04,170: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:20:04,223: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:20:04,223: INFO: main: *******************]
+[2025-03-10 12:20:04,223: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:20:04,224: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:20:04,226: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:20:04,226: INFO: common: created directory at: artifacts]
+[2025-03-10 12:20:04,227: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:20:04,450: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-10 12:20:05,737: ERROR: main: numpy() is only available when eager execution is enabled.]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 18, in main
+    training.train()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 118, in train
+    self.model.fit(
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/backend/tensorflow/core.py", line 158, in convert_to_numpy
+    return np.array(x)
+           ^^^^^^^^^^^
+NotImplementedError: numpy() is only available when eager execution is enabled.
+[2025-03-10 12:21:48,966: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:21:48,968: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:21:48,970: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:21:48,971: INFO: common: created directory at: artifacts]
+[2025-03-10 12:21:48,971: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:21:48,971: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:22:42,200: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:22:51,588: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:22:51,589: INFO: main: *******************]
+[2025-03-10 12:22:51,589: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:22:51,592: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:22:51,595: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:22:51,597: INFO: common: created directory at: artifacts]
+[2025-03-10 12:22:51,597: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:22:52,061: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:22:52,061: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:22:52,148: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:22:52,149: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:22:52,206: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:22:52,206: INFO: main: *******************]
+[2025-03-10 12:22:52,206: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:22:52,208: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:22:52,209: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:22:52,209: INFO: common: created directory at: artifacts]
+[2025-03-10 12:22:52,210: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:22:52,504: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-10 12:23:07,845: ERROR: main: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32, value=[[ 0.00866954  0.00233606]
+ [-0.00748595 -0.01077774]
+ [ 0.01293058  0.01019434]
+ ...
+ [-0.00565791 -0.00847092]
+ [-0.01041107 -0.01025164]
+ [-0.00695739 -0.01185499]]>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 18, in main
+    training.train()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 120, in train
+    self.model.fit(
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/base_optimizer.py", line 329, in _check_variables_are_known
+    raise ValueError(
+ValueError: Unknown variable: <Variable path=dense/kernel, shape=(25088, 2), dtype=float32, value=[[ 0.00866954  0.00233606]
+ [-0.00748595 -0.01077774]
+ [ 0.01293058  0.01019434]
+ ...
+ [-0.00565791 -0.00847092]
+ [-0.01041107 -0.01025164]
+ [-0.00695739 -0.01185499]]>. This optimizer can only be called for the variables it was originally built with. When working with a new set of variables, you should recreate a new optimizer instance.
+[2025-03-10 12:24:59,369: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-03-10 12:24:59,371: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:24:59,373: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:24:59,374: INFO: common: created directory at: artifacts]
+[2025-03-10 12:24:59,374: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-03-10 12:24:59,374: INFO: data_ingestion: Downloading data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:25:57,356: INFO: data_ingestion: Downloaded data from url="https://drive.google.com/file/d/16bY78PUqMqDF9DmrRRrma3rOAgYhvIA9/view?usp=sharing" into file artifacts/data_ingestion/data.zip]
+[2025-03-10 12:26:06,226: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-03-10 12:26:06,227: INFO: main: *******************]
+[2025-03-10 12:26:06,227: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-03-10 12:26:06,229: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:26:06,233: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:26:06,234: INFO: common: created directory at: artifacts]
+[2025-03-10 12:26:06,235: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-03-10 12:26:06,692: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:26:06,692: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:26:06,789: WARNING: saving_api: The `save_format` argument is deprecated in Keras 3. We recommend removing this argument as it can be inferred from the file path. Received: save_format=tf]
+[2025-03-10 12:26:06,789: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-03-10 12:26:06,856: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-03-10 12:26:06,856: INFO: main: *******************]
+[2025-03-10 12:26:06,856: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-03-10 12:26:06,859: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-03-10 12:26:06,860: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-03-10 12:26:06,861: INFO: common: created directory at: artifacts]
+[2025-03-10 12:26:06,861: INFO: common: created directory at: artifacts/training]
+[2025-03-10 12:26:07,089: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-03-10 12:26:07,396: ERROR: main: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.]
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 30, in get_base_model
+    optimizer=tf.keras.optimizers.legacy.SGD(learning_rate=0.01),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
+    raise ImportError(
+ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/AI/Kidney/main.py", line 36, in <module>
+    obj.main()
+  File "/Applications/AI/Kidney/src/cnnClassifier/pipeline/stage_03_model_training.py", line 16, in main
+    training.get_base_model()
+  File "/Applications/AI/Kidney/src/cnnClassifier/components/model_training.py", line 65, in get_base_model
+    optimizer=tf.keras.optimizers.legacy.SGD(learning_rate=0.01),  # Default from params.yaml
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lenguyen/.pyenv/versions/3.11.9/lib/python3.11/site-packages/keras/src/optimizers/__init__.py", line 115, in __init__
+    raise ImportError(
+ImportError: `keras.optimizers.legacy` is not supported in Keras 3. When using `tf.keras`, to continue using a `tf.keras.optimizers.legacy` optimizer, you can install the `tf_keras` package (Keras 2) and set the environment variable `TF_USE_LEGACY_KERAS=True` to configure TensorFlow to use `tf_keras` when accessing `tf.keras`.

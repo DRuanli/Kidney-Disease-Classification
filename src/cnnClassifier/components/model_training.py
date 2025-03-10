@@ -6,6 +6,8 @@ import time
 from pathlib import Path
 from src.cnnClassifier.entity.config_entity import TrainingConfig
 
+tf.config.run_functions_eagerly(True)
+
 class Training:
     def __init__(self, config: TrainingConfig):
         self.config = config
@@ -17,11 +19,19 @@ class Training:
         by using a custom solution to manually load model structure.
         """
         try:
-            # Attempt to load the model directly as a first option
+            # Load the model
             self.model = tf.keras.models.load_model(
                 self.config.updated_base_model_path
             )
             print("Loaded model successfully")
+            
+            # Recompile the model with a fresh optimizer
+            self.model.compile(
+                optimizer=tf.keras.optimizers.legacy.SGD(learning_rate=0.01),
+                loss=tf.keras.losses.CategoricalCrossentropy(),
+                metrics=["accuracy"]
+            )
+            print("Recompiled model with fresh optimizer")
         except Exception as e:
             print(f"Could not load model directly: {str(e)}")
             print("Creating a new model with the same architecture...")
@@ -112,6 +122,8 @@ class Training:
 
     
     def train(self):
+        tf.config.run_functions_eagerly(True)
+        
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
         self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
 
