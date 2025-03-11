@@ -28,14 +28,20 @@ Workflow:
 
 Usage:
 1. Customize Metadata:
-- Replace the placeholder values for AUTHOR_USER_NAME, AUTHOR_EMAIL, and REPO_NAME with your actual information.
+- Replace the placeholder values for 
+    AUTHOR_USER_NAME, 
+    AUTHOR_EMAIL, and 
+    REPO_NAME with your actual information.
 - Update the __version__ variable as needed.
 2. Create README.md:
 - Write a comprehensive README.md file that describes your package.
 3. Build and Install:
-- To build source and wheel distributions: python setup.py sdist bdist_wheel
-- To install the package in development mode: pip install -e .
-- To upload to pypi twine upload dist/*
+- To build source and wheel distributions:
+    python setup.py sdist bdist_wheel
+- To install the package in development mode:
+    pip install -e .
+- To upload to pypi
+    twine upload dist/*
 4. Distribute:
 - Upload the generated distribution files (located in the dist directory) to PyPI or other package repositories.
 """
@@ -48,7 +54,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "Kidney-Disease-Deep-Learning-Classification-MLflow-DVC"
+REPO_NAME = "Kidney-Disease-Classification"
 AUTHOR_USER_NAME = "8greenhallo" # Modify with your github username
 SRC_REPO = "cnnClassification"
 AUTHOR_EMAIL = "vungoctamy@gmail.com" # Modify with your gmail

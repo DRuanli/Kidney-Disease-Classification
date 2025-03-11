@@ -55,6 +55,8 @@ import sys
 import logging
 
 # Define logging format
+# [timestamp: log label name:
+# where the module from (e.g.template.py): error caught]
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 
 log_dir = "logs"
