@@ -1,0 +1,23 @@
+# This configuration block defines the settings for the data ingestion stage of a machine learning pipeline.
+# It specifies the locations for storing downloaded data, extracted files, and the source URL for the raw data.
+
+# Components:
+# - artifacts_root: Specifies the root directory for storing all artifacts generated during the deep/machine learning pipeline.
+# - data_ingestion: Defines the settings specific to the data ingestion stage.
+#   + root_dir: Organizes the data ingestion artifacts within the overall artifact storage.
+#   + source_URL: Defines the location of the raw data source.
+#   + local_data_file: Defines the location for the downloaded data archive.
+#   + unzip_dir: Defines the location for the extracted data files.
+
+# Usage:
+# This configuration block is typically used in conjunction with a data ingestion script or pipeline component.
+# The script reads the configuration parameters and uses them to download, store, and extract the raw data.
+
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://drive.google.com/file/d/1OsDiZ9Kyo-Qxa1xYKVWAZPasFgzAdjcP/view?usp=sharing
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion

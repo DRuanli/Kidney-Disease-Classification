@@ -73,10 +73,10 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     except Exception as e:
         raise e
 
-@ensure_annotations
+#@ensure_annotations
 def create_directories(path_to_directories: list, verbose=True) -> None:
     """
-    Create list of directories for modifying file(create, remove, move, ... file).
+    Create list of directories for modifying file
     Using for validation it.
 
     Args:
