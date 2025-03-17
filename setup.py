@@ -56,7 +56,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "Kidney-Disease-Classification"
 AUTHOR_USER_NAME = "8greenhallo" # Modify with your github username
-SRC_REPO = "cnnClassification"
+SRC_REPO = "cnnClassifier"
 AUTHOR_EMAIL = "vungoctamy@gmail.com" # Modify with your gmail
 
 setuptools.setup(

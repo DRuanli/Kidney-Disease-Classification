@@ -39,7 +39,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')\
 
 # Change for different project
-project_name = 'cnnClassifier'
+project_name = 'Prices_Predictor_System_ML'
 
 list_of_files = [
     # give path to be more robotic

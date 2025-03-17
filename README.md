@@ -1,34 +1,43 @@
 # 📌 Kidney-Disease-Deep-Learning-Classification
 
 
+## Recycle Code Workflows
+
+1. Update config.yaml: Change source_URL for future recycle.
+2. Update secrets.yaml [Optional] so the user don't saw it
+3. Update params.yaml
+4. Update the src/entity (can work on notebook first than update to entity later)
+5. Update the configuration manager in src/config
+6. Update the src/components: model preparation(trainer, evaluation, ...)
+7. Update the src/pipeline (training, prediction)
+8. Update the main.py -> this is the **end point**
+9. Update the dvc.yaml: tracking pipeline
+10. Create user app at app.py
 
 # 📁 Project Structure
 ```
-├── template.py               # Setup directories
-├── requirement.txt           # Packages list is required.
-├── setup.py                  # Use the local packages automatically.
-├── src/
-    ├── cnnClassifier/
-        ├── __init__.py       # For import package
-        ├── templates/        # For web application builder
-        ├── 
-    └── common.py
-├── main.py                   # Run the module
-├── logs/running_logs.log     # Save the running histories
-├── research/                 # Store the testing notebook
-├── utils/                    # Save the exception history that module facing.
-    └── common.py             # Store common functions within project, for better reference lately.
+├── template.py              # Setup directories
+├── requirement.txt          # Packages list is required.
+├── setup.py                 # Use the local packages automatically.
+├── src/cnnClassifier/
+    ├── __init__.py          # For import package
+    ├── utils/               # Save the exception history that module facing.
+        └── common.py        # Store common functions within project, for better reference lately.
+    ├── entity/              # return type of function
+    ├── templates/           # For web application builder
+├── main.py                  # Run the module
+├── logs/running_logs.log    # Save the running histories
+├── research/                # Store experiment caught through testing notebook
 └── 
 ```
 
 # How to run?
-### STEPS:
-
-Clone the repository
+### STEPS: Clone the repository
 
 ```bash
 https://github.com/DRuanli/Kidney-Disease-Classification/tree/meg
 ```
+
 ### STEP 01 - Create and activate a conda environment after opening the repository
 
 Always create a new virtual environment for each project.
@@ -78,21 +87,80 @@ conda install --file requirements.txt
 ```
 
 ### STEP 04 - Project Workflow Files Setup
-**setup.py**: file to help automatically preparing local packages for folder.
+- **setup.py**: file to help automatically preparing local packages for folder.
 
-**__init__.py**: the Constructor file help you easily import these packages.
+- **__init__.py**: the Constructor file help you easily import these packages.
 
-**main.py**: file to run and test module. Note that "cnnClassifier" is set as local package in **setup.py**.
+- **main.py**: file to run and test module. Note that "cnnClassifier" is set as local package in **setup.py**.
 
 ```code
 from cnnClassifier import logger # instead of src.cnnClassifier
 ```
 
-**logs/running_logs.log**: After run history will save to this file.
+- **logs/running_logs.log**: After run history will save to this file.
 
+- Add functions that you use recently in **common.py**
 
+- Testing your module in **research** folder.
 
-### STEP 05 - Project Setup
+### STEP 05 - Exacting Data
+
+We use Kidney dataset from kaggle, you can visit this link: [kaggle link](https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone)
+
+Because it the image dataset so it bring with huge capacity. So we will use *gdown* to download it from google drive.
+
+1. Download the data from the kaggle
+2. Upload the data to google drive, remember to set the status to accessible with whoever have the link
+3. Build config: Modify the *config/config.yaml*: Change the source_URL for future recycle.
+
+**Configuration vs Hardcode**
+
+- The configuration version allows you to change database credential, switch between different API endpoints, value without modifying the code.
+
+- Easily maintain system: can have different *config.yaml* files for development, testing, and production.
+
+After done do *STEP 09 - Testing and Training*
+
+### STEP 06 - Model Choosing
+For image dataset, we tend to choose **VGG-16** cause of it primary purpose is image classification.
+
+- **Characteristic**: a deep architecture, consisting of 16 layers with weights (convolutional and fully connected layers).
+
+- **Training**: The original VGG-16 model was trained on the ImageNet dataset, a massive dataset of millions of labeled images. This pre-training allows the model to learn general-purpose image features.
+
+- Layers:
+    - Convolution layers:
+        - Conv n-m: Convolutional Layers with the Filter Dimensions(kernel) e.g. Conv 1-1 is represented to a 1x1 convolution uses a filter that is 1 pixel wide and 1 pixel high.
+        - Pooling: is used to reduce the spatial dimensions of the feature maps. This reduces the number of parameters and makes the network more robust to small variations in the input.
+    - Activation Function: Softmax activation.
+    - FC(Fully Connect) a.k.a Top layer =:
+        - In python program parameter, it represent as Dense layer.
+        - In FC layer, every neuron in the layer is connected to every neuron in the previous layer. This means that each neuron receives input from all neurons in the preceding layer. 
+        - Perform the final classification or prediction based on the features extracted by earlier layers (e.g., convolutional layers in a CNN).
+    
+After done do *STEP 09 - Testing and Training*
+
+### STEP 07 - Training Model
+You can change class and epochs to see the model performance.
+
+After done do *STEP 09 - Testing and Training*
+
+### STEP 08 - Model Evaluation with MLflow
+
+**What is MLflow?**
+- 
+
+After done do *STEP 09 - Testing and Training*
+
+### STEP 09 - Testing and Training
+
+After do testing at notebook in *research* folder, update it base on the *Recycle Code Workflows*. Then execute:
+
+```base
+python3 main.py # or python
+```
+
+### STEP 09 - 
 
 ### STEP 00 - End the virtual environment
 After the project is completed

@@ -1,2 +1,12 @@
-# Some dummy value
-key: value
+# Some dummy value cause not need for 1st stage
+#key: val
+
+# For 2nd stage
+AUGMENTATION: True
+IMAGE_SIZE:  [224, 224, 3]  # as per input in VGG-16 model
+BATCH_SIZE: 16              # give small size for local training
+INCLUDE_TOP: False          # no fc layer
+EPOCHS: 1                   # training number, normally 200 or 300 for well seeing the model performance
+CLASSES: 4                  # base on video - 2: normal + tumor
+WEIGHTS: imagenet
+LEARNING_RATE: 0.01

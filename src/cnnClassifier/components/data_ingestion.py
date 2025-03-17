@@ -1,4 +1,4 @@
-# Downloading and extracting data = data ingestion
+# Data Ingestion: components
 import os
 import zipfile
 import gdown
