@@ -148,9 +148,20 @@ After done do *STEP 09 - Testing and Training*
 ### STEP 08 - Model Evaluation with MLflow
 
 **What is MLflow?**
-- 
+-  An open-source platform designed to manage the complete machine learning lifecycle. [MLflow Link](https://mlflow.org)
+- Components:
+    - MLflow Tracking: keep track of different runs and compare their performance.
 
-After done do *STEP 09 - Testing and Training*
+    - MLflow Projects: allows you to specify dependencies and entry points for your code -> reproducible and shareable.
+
+    - MLflow Models: supports various model formats (e.g., scikit-learn, TensorFlow, PyTorch) -> deployable to various platforms.
+
+    - MLflow Registry: track model lineage and manage model deployments -> provides a centralized model repository for managing model versions, stages (e.g., staging, production), and transitions.
+
+We using [Dagshub](https://dagshub.com) for remote storage
+
+After done do *ST
+EP 09 - Testing and Training*
 
 ### STEP 09 - Testing and Training
 
